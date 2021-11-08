@@ -54,7 +54,9 @@ const transform = (puzzleString) => {
 const checkRowPlacement = (puzzleString, row, column, value) => {
   let grid = transform(puzzleString)
   row = letterToNumber(row)
-  if (grid[row - 1][column - 1] !== 0) return false
+  let gridValue = grid[row - 1][column - 1]
+  if (gridValue === Number(value)) return true
+  if (gridValue !== 0) return false
 
   for (let i = 0; i < 9; i++) {
     if (grid[row - 1][i] == value) return false
@@ -64,7 +66,9 @@ const checkRowPlacement = (puzzleString, row, column, value) => {
 const checkColPlacement = (puzzleString, row, column, value) => {
   let grid = transform(puzzleString)
   row = letterToNumber(row)
-  if (grid[row - 1][column - 1] !== 0) return false
+  let gridValue = grid[row - 1][column - 1]
+  if (gridValue === Number(value)) return true
+  if (gridValue !== 0) return false
 
   for (let i = 0; i < 9; i++) {
     if (grid[i][column - 1] == value) return false
@@ -74,7 +78,9 @@ const checkColPlacement = (puzzleString, row, column, value) => {
 const checkRegionPlacement = (puzzleString, row, col, value) => {
   let grid = transform(puzzleString)
   row = letterToNumber(row)
-  if (grid[row - 1][col - 1] !== 0) return false
+  let gridValue = grid[row - 1][col - 1]
+  if (gridValue === Number(value)) return true
+  if (gridValue !== 0) return false
 
   let startRow = row - (row % 3),
     startCol = col - (col % 3)
